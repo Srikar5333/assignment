@@ -1,111 +1,70 @@
-# Ecommerce Data Loader
+# Getting Started with Create React App
 
-This project loads product data from a CSV file into a PostgreSQL database.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Prerequisites
+## Available Scripts
 
-1. **Python 3.8+** (already installed)
-2. **PostgreSQL** (needs to be installed)
+In the project directory, you can run:
 
-## Setup Instructions
+### `npm start`
 
-### 1. Install Python Libraries
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The required libraries are already installed:
-- `pandas` - for CSV data processing
-- `psycopg2-binary` - PostgreSQL adapter for Python
-- `python-dotenv` - for environment variable management
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-### 2. Install PostgreSQL
+### `npm test`
 
-1. Download PostgreSQL from: https://www.postgresql.org/download/windows/
-2. Run the installer with these settings:
-   - **Password**: Set a strong password (remember this!)
-   - **Port**: 5432 (default)
-   - **Install all components**
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### 3. Set Up Database
+### `npm run build`
 
-After PostgreSQL installation:
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-1. **Open pgAdmin** (comes with PostgreSQL)
-2. **Connect to server** using your password
-3. **Create database**:
-   - Right-click on "Databases" → "Create" → "Database"
-   - Name it: `ecommerce`
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-4. **Create table** (run this SQL in pgAdmin):
-   ```sql
-   CREATE TABLE products (
-       id INTEGER PRIMARY KEY,
-       cost DECIMAL(10,2),
-       category VARCHAR(255),
-       name VARCHAR(255),
-       brand VARCHAR(255),
-       retail_price DECIMAL(10,2),
-       department VARCHAR(255),
-       sku VARCHAR(255),
-       distribution_center_id INTEGER
-   );
-   ```
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### 4. Configure Database Connection
+### `npm run eject`
 
-Create a `.env` file in the project directory:
-```
-DB_HOST=localhost
-DB_NAME=ecommerce
-DB_USER=postgres
-DB_PASSWORD=your_actual_password_here
-DB_PORT=5432
-```
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-### 5. Run the Data Loader
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Use the improved version:
-```bash
-python load_data_postgres_improved.py
-```
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-Or the original version (update password first):
-```bash
-python load_data_postgres.py
-```
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Files in this Project
+## Learn More
 
-- `products.csv` - Source data file
-- `load_data_postgres.py` - Original script
-- `load_data_postgres_improved.py` - Enhanced version with error handling
-- `requirements.txt` - Python dependencies
-- `setup_database.sql` - Database setup script
-- `setup_postgres.md` - PostgreSQL installation guide
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-## Troubleshooting
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Connection Refused Error
-- **PostgreSQL not running**: Start PostgreSQL service
-- **Wrong credentials**: Check your `.env` file
-- **Database doesn't exist**: Create the `ecommerce` database
+### Code Splitting
 
-### Permission Errors
-- **User doesn't exist**: Create user or use `postgres` superuser
-- **Database access denied**: Grant permissions to your user
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Data Loading Issues
-- **CSV format**: Ensure `products.csv` is in the correct format
-- **Data types**: Check that numeric fields contain valid numbers
+### Analyzing the Bundle Size
 
-## Performance Tips
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-- The improved script shows progress every 1000 rows
-- Uses `ON CONFLICT DO NOTHING` to handle duplicates
-- Includes error handling for individual row failures
+### Making a Progressive Web App
 
-## Next Steps
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-After successful data loading, you can:
-1. Query the data using SQL
-2. Build analytics dashboards
-3. Create APIs to access the data
-4. Set up automated data refresh processes 
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
